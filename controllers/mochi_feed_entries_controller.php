@@ -93,7 +93,7 @@ class MochiFeedEntriesController extends AppController {
 		
 		//$this->set('mochi_feed_entries', $entries);	
 	}
-	
+	 
 	function view($gametag) {
 		$rec = $this->MochiFeedEntry->findByGameTag($gametag);
 		$this->set(compact('rec'));

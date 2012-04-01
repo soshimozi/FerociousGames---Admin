@@ -3,7 +3,7 @@
 		function closeDialogWindow() {
 			if( _fnclose ) {
 				_fnclose();
-			} 
+			}   
 			
 			$("#dlgmask").hide(); 
 			$('.window').hide();
@@ -18,7 +18,7 @@
 		
 			//Set heigth and width to mask to fill up the whole screen
 			$("#dlgmask").css({'width':maskWidth,'height':maskHeight});
-			
+			 
 			//transition effect		
 			$("#dlgmask").fadeIn(1000);	
 			$("#dlgmask").fadeTo("slow",0.8);	
