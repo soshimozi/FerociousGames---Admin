@@ -1,0 +1,83 @@
+/**
+ *
+ * Generic CSS for CakePHP
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       cake
+ * @subpackage    cake.app.webroot.css
+ * @since         CakePHP(tm)
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
+
+* {
+	margin:0; 
+	padding:0;
+}
+
+/** General Style Info **/
+body {
+	background: white;
+	color: #fff;
+	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
+	font-size:90%;
+	margin: 0;
+}
+
+input[type=submit] {
+	display: inline;
+	font-size: 110%;
+	width: auto;
+}
+
+input[type=submit] {
+	font-weight:normal;
+	padding: 4px 8px;
+	background:#e6e49f;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f1f1d4), to(#e6e49f));
+	background-image: -moz-linear-gradient(top, #f1f1d4, #e6e49f);
+	color:#333;
+	border:1px solid #aaac62;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	text-decoration:none;
+	text-shadow: #fff 0px 1px 0px;
+	min-width: 0;
+}
+input[type=submit]:hover {
+	background: #f0f09a;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f7f7e1), to(#eeeca9));
+}
+
+input[type=button] {
+    display: inline;
+    font-size: 110%;
+    width: auto;
+}
+
+input[type=button] {
+    font-weight:normal;
+    padding: 4px 8px;
+    background:#e6e49f;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f1f1d4), to(#e6e49f));
+    background-image: -moz-linear-gradient(top, #f1f1d4, #e6e49f);
+    color:#333;
+    border:1px solid #aaac62;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+    text-decoration:none;
+    text-shadow: #fff 0px 1px 0px;
+    min-width: 0;
+}
+input[type=button]:hover {
+    background: #f0f09a;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f7f7e1), to(#eeeca9));
+}
