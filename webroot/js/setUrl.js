@@ -71,11 +71,21 @@ var indexexists = url.indexOf(controller + "/index");
   // set the url
   window.location.href = url;
   
-  
-  window.location.href = url;
- 
  }
  
+ function changePage(category, page,limit) {
+	var url = "/mochi_feed_entries/index/";
+	if( category ) {
+		url = url + "category:"+category+"/";
+	}
+	
+	if( limit ) {
+		url = url + "limit:"+limit+"/";
+	}
+	
+	url = url + "page:"+page+"/";
+	window.location.href = url; 
+ }
  
 function setURL(key, value) {
   // set up the url separators
@@ -85,9 +95,8 @@ function setURL(key, value) {
     'value': ':'
   }
  
-	
   // get the current url
-  var url = window.location.href;
+  var url = window.location.href; 
   
   // check if the specified key already exists
   var exists = url.indexOf(separator.key + key + separator.value);

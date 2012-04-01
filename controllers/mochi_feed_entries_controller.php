@@ -4,9 +4,21 @@ class MochiFeedEntriesController extends AppController {
 	var $name = 'MochiFeedEntries';
 
 	var $helpers = array('Form', 'Html', 'Javascript', 'Time', 'Session');
+	var $uses = array('MochiFeedEntry', 'MochiConfig');
 	
+	function testyo() {
+		pr($this->params);
+		
+		$config = $this->MochiConfig->find('first', array('conditions' => array('MochiConfig.name' => 'auto-post-url')));
+		if( $config ) {
+			pr($config['MochiConfig']['value']);
+		}
+		
+		$this->redirect(array('controller' => 'mochi_feed_entries', 'action' => 'index', 'page' => 0));
+	} 
+	    
 	function index() {
-		$this->Session->setFlash(null); 
+ 
 		if(!empty($this->params) ) {
 			if( isset($this->params['named']['category']))  {
 				$category = $this->params['named']['category'];
@@ -21,13 +33,11 @@ class MochiFeedEntriesController extends AppController {
 		if( empty($search) ) {
 			if( $this->Session->check("search") ) {
 				$search = $this->Session->read("search");
-				$this->Session->setFlash('Search is '.$search);
 			}
 		} else {
 			trim($search);
 			if( !empty($search) ) {
 				$this->Session->write("search", $search);
-				$this->Session->setFlash('Search is '.$search);
 			}
 			
 			$search = trim($search);
@@ -68,7 +78,7 @@ class MochiFeedEntriesController extends AppController {
 
 		$this->paginate = array(
 			'conditions' => $conditions,
-			'order' => array('MochiFeedEntry.created' => 'DESC')
+			'order' => array('MochiFeedEntry.metascore' => 'DESC', 'MochiFeedEntry.created' => 'DESC')
 		);
 		
 		$entries = $this->paginate('MochiFeedEntry');
@@ -81,7 +91,7 @@ class MochiFeedEntriesController extends AppController {
 		$this->set('category', $category);
 		$this->set('filter', $filter);		
 		
-		$this->set('mochi_feed_entries', $entries);	
+		//$this->set('mochi_feed_entries', $entries);	
 	}
 	
 	function view($gametag) {
@@ -96,8 +106,6 @@ class MochiFeedEntriesController extends AppController {
 	function clearsearch() {
 		$this->Session->write("search", null);
 		$this->redirect(array('controller' => 'mochi_feed_entries', 'action' => 'index'));
-		
-		return "<span>test</span>"; 
 	}
 	
 	function do_post_request($url, $data, $optional_headers = null) 

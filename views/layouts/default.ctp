@@ -28,10 +28,10 @@
 		echo $html->meta('icon');
 		echo $html->css('cake.generic');
 		echo $html->css("page");
-		echo $html->css("jquery-ui-1.8.14.custom");
+		echo $html->css("jquery-ui-1.8.18.custom");
 
-		echo $javascript->link('https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js');
-		echo $javascript->link('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js');
+		echo $javascript->link('https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+		echo $javascript->link('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js');
 		echo $scripts_for_layout;
 	?>
 </head>

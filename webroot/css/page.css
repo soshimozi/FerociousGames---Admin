@@ -30,9 +30,13 @@
 		*.oi2 { margin:5px; padding:5px; }
 		*.oi3 { margin:5px; padding:5px; }
 		
-		#main { }
-		#nav { display:inline-block; width:15%; min-width:190px; max-width:190px }
-		#content { display:inline-block; width:80%; vertical-align:top; }
+		#main { 
+			width:1200px; 
+			overflow:hidden;
+		}
+		
+		#nav { display:inline-block; width:220px;}
+		#content { display:inline-block; width:950px; vertical-align:top; }
 		#nav *.oi2 { min-height:43px; }
 			
 		a.game-link:link { text-decoration:none; }
@@ -61,19 +65,23 @@
 			width:130px;
 		}
 		
-		a  {
-		border: none;
-		}		
-		
+		    
 		a { 
-			color : #fd8b1a;
-			font-weight: bold;
+			color: #0073EA;
 		}
 		
-		a:hover {
-			color: #55c6da;
+		a:visited {
 		}
 		
+		/* #fd8b1a */
+		  
+		#nav ul li a {
+			color: #fd8b1a;
+		}
+		#nav ul li a:hover {
+			color: #0073EA;
+		}
+
 		.game_thumb img {
 		border: none;
 		display: block;
@@ -185,7 +193,7 @@
 		color:#025982;
 		display: inline-block;
 		}
-
+    
 		.browse_numpart a:link {
 			color:#025982;
 			text-decoration: none;
@@ -220,9 +228,11 @@
 		line-height:43px;
 		}
 
+		/*
 		.browse_nummd1 a:hover,span{
 			color:#ffffff;
 		}
+		*/
 
 		.browse_pagetxt{
 		float:left;
@@ -257,7 +267,7 @@
 		background:#0c1619;
 		color:#ffffff;
 		}
-
+ 
 		.browse_numactive a{
 		width:20px;
 		height:20px;
@@ -268,6 +278,19 @@
 		}
 
 
+		.top-advert-outside {
+			width:1200;
+			margin-top: 5px;
+		}
+		
+		.top-advert-container {
+			overflow:hidden; 
+			/*border:3px dashed black; */
+			margin: 0px auto; 
+			height:90px; 
+			width: 728px;		
+		}
+ 		
 		.browse_numright{
 		float:left;
 		width:5px;
@@ -353,3 +376,8 @@
 		font-size: 1px!important;
 		line-height: 1px!important;
 		}		
+		  
+		.addgame {
+			float: left; 
+			vertical-align: bottom;
+		}
