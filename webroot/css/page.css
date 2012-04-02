@@ -46,6 +46,7 @@
 		.search-box {
 			border-bottom: 1.5px solid #DBCCB6; 
 			margin-bottom:2px;		
+			padding-bottom:5px;
 		}
     /*a:visited           { color:red; text-decoration:underline; }
     a:hover             { color:green; text-decoration:underline; }
@@ -290,8 +291,15 @@
 			height:90px; 
 			width: 728px;		
 		}
+		
+		.side-advert-container {
+			overflow:hidden;
+			margin: 0px auto;
+			height:600px;
+			width:160px;
+		}
  		
-		.browse_numright{
+		.browse_numright{ 
 		float:left;
 		width:5px;
 		}

@@ -1,22 +1,11 @@
 <?php
-
+  
 class MochiFeedEntriesController extends AppController {
 	var $name = 'MochiFeedEntries';
 
 	var $helpers = array('Form', 'Html', 'Javascript', 'Time', 'Session');
-	var $uses = array('MochiFeedEntry', 'MochiConfig');
+	var $uses = array('MochiFeedEntry', 'MochiConfig', 'Category');
 	
-	function testyo() {
-		pr($this->params);
-		
-		$config = $this->MochiConfig->find('first', array('conditions' => array('MochiConfig.name' => 'auto-post-url')));
-		if( $config ) {
-			pr($config['MochiConfig']['value']);
-		}
-		
-		$this->redirect(array('controller' => 'mochi_feed_entries', 'action' => 'index', 'page' => 0));
-	} 
-	    
 	function index() {
  
 		if(!empty($this->params) ) {
@@ -26,10 +15,8 @@ class MochiFeedEntriesController extends AppController {
 			if( isset($this->params['form']) && isset($this->params['form']['search']) )  {
 				$search = $this->params['form']['search'];
 			}
-		}
+		} 
 		
-
- 
 		if( empty($search) ) {
 			if( $this->Session->check("search") ) {
 				$search = $this->Session->read("search");
@@ -77,21 +64,22 @@ class MochiFeedEntriesController extends AppController {
 		}
 
 		$this->paginate = array(
+			'fields' => array('MochiFeedEntry.*', 'MochiGame.id'),
 			'conditions' => $conditions,
 			'order' => array('MochiFeedEntry.metascore' => 'DESC', 'MochiFeedEntry.created' => 'DESC')
 		);
 		
 		$entries = $this->paginate('MochiFeedEntry');
+		
 		if(isset($this->params['requested'])) {
 			return $entries;
-		}
+		}  
 		 
 		$this->set('entries', $entries);			
 		$this->set('catname', $catname);
 		$this->set('category', $category);
 		$this->set('filter', $filter);		
-		
-		//$this->set('mochi_feed_entries', $entries);	
+		$this->set('categories', $this->Category->find('all'));
 	}
 	 
 	function view($gametag) {
@@ -100,7 +88,10 @@ class MochiFeedEntriesController extends AppController {
 	}	
 	
 	function addgame($gametag) {
-		$this->do_post_request("http://data.ferociousgames.com/mochi/autopost.php", "game_tag=$gametag");
+		$auto_post_url = $this->MochiConfig->find('first', array('conditions' => array('MochiConfig.name' => 'auto-post-url')));
+		if( $auto_post_url ) {
+			$this->do_post_request("http://data.ferociousgames.com/mochi/autopost.php", "game_tag=$gametag");
+		}
 	}
 	
 	function clearsearch() {

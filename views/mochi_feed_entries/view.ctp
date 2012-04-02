@@ -30,10 +30,12 @@ if( $hours > 240 ) {
 			<li><strong>Tags:</strong> <?php echo $rec['MochiFeedEntry']['tags']; ?></li>
 			<li><strong>Created by:</strong> <a target="_blank" href="<?php echo $rec['MochiFeedEntry']['author_link']; ?>"><?php echo $rec['MochiFeedEntry']['author']; ?></a></li>
 		</ul>
+		<?php if( empty($rec['MochiGame']['id']) ): ?>
 		<div>
-		<div style="float:left;"><input type="button" value="Add Game" onclick="javascript:addGame('<?php echo $rec['MochiFeedEntry']['game_tag']; ?>');" /></div>
+		<div style="float:left;"><input type="button" value="Add Game" onclick="javascript:addSingleGame('<?php echo $rec['MochiFeedEntry']['game_tag']; ?>');" /></div>
 		<div style="float:left; padding-left:8px;" id="gamestatusblock"></div>
 		</div>
+		<?php endif; ?>
 
 	</div>
 	<div id="secondary_meta">
