@@ -2,7 +2,7 @@
 		font-size: 12px;
 		line-height: 1.5em;
 		font-family: Verdana, Helvetica, sans-serif;
-		color: #4F4F56;
+		color: #0073EA;
 		}	
 		
 		/* Non-essential Styles */
@@ -11,8 +11,7 @@
 
 		h1, h2, h3, h4, h5, h6 {
 		margin: 0;
-		color: #844A19;
-		color: #844A19;
+		color: #FF0084;
 		font-family: verdana, sans-serif;
 		letter-spacing: -1px;
 		}		
@@ -39,249 +38,17 @@
 		#content { display:inline-block; width:950px; vertical-align:top; }
 		#nav *.oi2 { min-height:43px; }
 			
-		a.game-link:link { text-decoration:none; }
-		a.game-link:hover { text-decoration:none; font-weight:bolder; }
-		a.game-link:visited { text-decoration:none; }
-		
 		.search-box {
 			border-bottom: 1.5px solid #DBCCB6; 
 			margin-bottom:2px;		
 			padding-bottom:5px;
 		}
-    /*a:visited           { color:red; text-decoration:underline; }
-    a:hover             { color:green; text-decoration:underline; }
-    a:active            { color:red; text-decoration:underline; }
-
-    a.otherLink:link    { color:red; text-decoration:none; }
-    a.otherLink:visited { color:red; text-decoration:none; }
-    a.otherLink:hover   { color:green; text-decoration:underline; }
-    a.otherLink:active  { color:red; text-decoration:none; }		
-		*/
-		
-		.game_thumb {
-			margin: 0 0 0 0;
-			padding: 0;
-			float: left;
-			position:relative;
-			width:130px;
-		}
-		
 		    
 		a { 
 			color: #0073EA;
 		}
 		
 		a:visited {
-		}
-		
-		/* #fd8b1a */
-		  
-		#nav ul li a {
-			color: #fd8b1a;
-		}
-		#nav ul li a:hover {
-			color: #0073EA;
-		}
-
-		.game_thumb img {
-		border: none;
-		display: block;
-		margin: 0 auto;
-		}	
-		
-		.game_thumb .features {
-		width: 27px;
-		height: 80px;
-		background: url(/img/bg_ribbon_top.png) top left no-repeat;
-		position: absolute;
-		right: 2px;
-		top: -5px;
-		padding: 3px 0 0 0;
-		}		
-		
-		.game_thumb .features > div {
-		background: url(/img/bg_ribbon_bottom.png) bottom left no-repeat;
-		padding-bottom: 5px;
-		}	
-
-		.game_thumb .features .lb_enabled {
-		background: url(/img/feature_icons.png) 24px 0;
-		}
-		
-		.game_thumb .features .poi_enabled {
-		background: url(/img/feature_icons.png) 0 0;
-		}		
-		
-		.game_thumb .features span {
-		width: 24px;
-		height: 24px;
-		display: block;
-		margin: 0 0 0 3px;
-		}		
-		
-		.game_thumb .meta {
-		text-align: center;
-		}		
-		
-		.game_thumb h3 {
-		color: #5D5D60;
-		}		
-		
-		.game_thumb h3, .game_thumb h3 a {
-		font-size: 12px;
-		color: #844A19;
-		font-weight: bold;
-		text-decoration: none;
-		margin: 5px 0px 2px;
-		line-height: 14px;
-		}		
-		
-		.game_thumb h4 {
-		line-height: 12px;
-		font-size: 10px;
-		margin: 1px 0 0;
-		text-decoration: none;
-		}
-
-		.game_thumb h4 a {
-		font-weight: normal;
-		color: #FD8B1A;
-		text-decoration: none;
-		}
-		
-		.game_thumb h4 a:hover {
-		font-weight: bold;
-		color: #b02e25;
-		text-decoration: none;
-		}		
-		
-		.game_thumb h4 strong {
-		font-weight: normal;
-		color: #FD8B1A;
-		}		 
-		
-		.game_thumb .meta {
-		text-align: center;
-		}		
-		
-		.game_thumb .meta .poi {
-		color: #689DAE;
-		font-weight: normal;
-		}		
-		
-		.game_container {
-			float:left;
-			padding:5px;
-			height:190px;
-			margin:5px;
-		}
-		
-		.game_container input[type="checkbox"] { 
-			vertical-align:top; 
-			float:left;
-		}
-		
-		.game_container .game_thumb {
-			float:left;
-		}
-
-		.browse_numpart{
-		width:540px;
-		clear:both;
-		margin:auto;
-		padding-top:10px;
-		font:bold 17px Arial;
-		color:#025982;
-		display: inline-block;
-		}
-    
-		.browse_numpart a:link {
-			color:#025982;
-			text-decoration: none;
-		}
-
-		.browse_numpart a:visited {
-			color:#025982;
-			text-decoration: none;
-		}
-		
-		.browse_numpart a:hover {
-			color:#00ffff;
-		}
-
-		.browse_numleft{
-		float:left;
-		width:5px;
-		}
-
-		.browse_nummd{
-		width:840px;
-		height:73px;
-		float:left;
-		border: 3px dotted;
-		}
-
-		.browse_nummd1{ 
-		text-align:center;
-		background:url(/img/browse_nummd.jpg) left top repeat;
-		height:73px;
-		float:left;
-		line-height:43px;
-		}
-
-		/*
-		.browse_nummd1 a:hover,span{
-			color:#ffffff;
-		}
-		*/
-
-		.browse_pagetxt{
-		float:left;
-		padding:12px 0px 0px 105px;
-		width:55px;
-		}
-
-		.browse_nummenu{
-		float:left;
-		width:265px;
-		}
-
-		.browse_nummenu ul{
-		margin:0px;
-		padding:0px;
-		}
-
-		.browse_nummenu li{
-		float:left;
-		margin:12px 6px 0px 0px;
-		}
-
-		.browse_nummenu li a{
-		width:20px;
-		height:20px;
-		display:block;
-		text-align:center;
-		line-height:20px;
-		}
-
-		.browse_nummenu li a:hover{
-		background:#0c1619;
-		color:#ffffff;
-		}
- 
-		.browse_numactive a{
-		width:20px;
-		height:20px;
-		background:#0c1619;
-		text-align:center;
-		color:#ffffff;
-		line-height:20px;
-		}
-
-
-		.top-advert-outside {
-			width:1200;
-			margin-top: 5px;
 		}
 		
 		.top-advert-container {
@@ -299,82 +66,13 @@
 			width:160px;
 		}
  		
-		.browse_numright{ 
-		float:left;
-		width:5px;
-		}
-
-		.browse_next{
-		float:left;
-		padding-top:12px;
-		}	
-
-		ul, ol {
-		line-height: 1.5em;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		}		
-		
-		#nav h3 { line-height: 1.5em; margin-bottom: .5em; }
-		#nav ul { font-size: .9em; margin: 0 0 0 1em; }
-		
-		#nav h2 { background: none; padding-top: 2px; }
-		#nav #oi2 h3.sidebar_header,
-		#nav #oi2 h3.sidebar_header { text-transform: normal; font-size: 14px; line-height: 14px; color: #965c21; background: url(../images/bg_dashes.gif) left bottom repeat-x; }
-		#nav form { position: relative; }
-		.sidebar_header {
-			padding-top:20px;
-		}
 		
 		h3 { margin-bottom: 0px !important; }
 		ul { margin: 0 20px 10px 20px; border-bottom: 1px solid #dbccb6; padding-top: 0px; }
 		li { border-bottom: 1px solid #f4e9da; padding: 3px 0 3px 10px; }
 		li a { text-decoration: none; font-weight: normal; font-size: 1.1em; display: block;}
 
-		#game_info {
-		border-top: 6px solid #239492;
-		border-bottom: 1px dashed #BBB;
-		color: #686868;
-		font-family: Helvetica,Verdana,sans-serif;
-		font-size: 12px;
-		font-size-adjust: none;
-		font-stretch: normal;
-		font-style: normal;
-		font-variant: normal;
-		font-weight: normal;
-		line-height: 1.5em;
-		}		
-		
-		#game_info ul { margin: 10px 0; font-size: .9em; }
-		#game_info #key_meta { float: left; width: 420px; margin-right: 20px; padding-top: 20px;}
-		#game_info #key_meta .thumb { float: left; margin-right: 20px; margin-top: 0; padding: 3px; border: 3px solid #5a3718; }
-		#game_info #key_meta .thumb,
-		#game_info #key_meta .thumb img { width: 100px; height: 100px; }
-		#game_info #key_meta h2 { font-size: 1.5em; margin: 0; }
-		#game_info #key_meta h3 { font-size: .9em; font-weight: normal; color: #777; margin: 0 0 6px; }
-		#game_info #key_meta #actions li { float: left; position: relative; padding: 0 5px;}
-		#game_info #key_meta #actions li a { font-size: .9em; text-decoration: none;}
-		#game_info #key_meta #actions li a:hover {background-color: #95f3ee; color: black; !important; }
-		#game_info #key_meta #actions #download_link { background-color: #239492; color: white; padding: 7px;}
-		#game_info h4 { color:#239492; font-size:1.1666em; line-height:1.5em; margin:5px 0 0 0;  }
-		#game_info ul, ol { line-height:1.5em; list-style-image:none; list-style-position:outside; list-style-type:none; margin:0 0 1.5em; padding:0;}
-
-		#game_info #key_meta #game_embed { margin: 1em 0 0;}
-		#game_info #key_meta #game_embed #embed_code { width: 420px; height: 60px; background: #fff; }
-
-		#game_info #secondary_meta {float: left; width: 420px; padding-left: 20px; padding-top: 20px;}
-		#game_info #secondary_meta.no_lb { width: 400px; margin-right: 0px; }
-		#game_info #secondary_meta .description { margin-bottom: 1em; font-size: 1em; }
-		#game_info #secondary_meta #controls ul { margin-top: 0; }
-
 		button{line-height:12px;max-height:26px;}
-		#game_info #widget { float: right; margin: 4em 0 1.5em; width: 100%;}
-		#game_info #widget #widget_embed_link { margin-left: 10px; background-color: #239492; color: white;text-decoration: none; font-size: .9em; float: right; padding: 7px;line-height: 12px;}
-		#game_info #widget #showboard { cursor: pointer;border: none; background-color: #239492; color: white; text-decoration: none; float: right; padding: 7px; margin-left: 10px;line-height: 12px;display:block; font-size: .9em; vertical-align:center;}
-		#widget h2 {float: left; margin-top: 7px;}
-		#game_info #widget .widget_embed_code { width: 365px; height: 60px; background: #fff; margin-bottom: 1em; float: none; }
-		#game_info #widget embed { border: 3px solid #ddd; padding: 1px; margin-top: .3em; }		
 		
 		.cufon-canvas {
 		display: inline!important;
@@ -385,7 +83,4 @@
 		line-height: 1px!important;
 		}		
 		  
-		.addgame {
-			float: left; 
-			vertical-align: bottom;
-		}
+		.addgame { float: left; vertical-align: bottom; }

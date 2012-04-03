@@ -1,0 +1,115 @@
+		.game_thumb img {
+		border: none;
+		display: block;
+		margin: 0 auto;
+		}	
+		
+		.game_thumb .features {
+		width: 27px;
+		height: 80px;
+		background: url(/img/bg_ribbon_top.png) top left no-repeat;
+		position: absolute;
+		right: 15px;
+		top: -5px;
+		padding: 3px 0 0 0;
+		}		
+		
+		.game_thumb .features > div {
+		background: url(/img/bg_ribbon_bottom.png) bottom left no-repeat;
+		padding-bottom: 5px;
+		}	
+
+		.game_thumb .features .lb_enabled {
+		background: url(/img/feature_icons.png) 24px 0;
+		}
+		
+		.game_thumb .features .poi_enabled {
+		background: url(/img/feature_icons.png) 0 0;
+		}		
+		
+		.game_thumb .features span {
+		width: 24px;
+		height: 24px;
+		display: block;
+		margin: 0 0 0 3px;
+		}		
+		
+		.game_thumb .meta {
+		text-align: center;
+		}		
+		
+		.game_thumb h3 {
+		color: #00599A;
+		}		
+		
+		.game_thumb h3, .game_thumb h3 a {
+		font-size: 12px;
+		color: #FF0084;
+		font-weight: bold;
+		text-decoration: none;
+		margin: 5px 0px 2px;
+		line-height: 14px;
+		}		
+		
+		.game_thumb h4 {
+		line-height: 12px;
+		font-size: 10px;
+		margin: 1px 0 0;
+		text-decoration: none;
+		color:#006400;
+		}
+
+		.game_thumb h4 a {
+		font-weight: normal;
+		color: #0073EA;
+		text-decoration: none;
+		}
+		
+		.game_thumb h4 a:hover {
+		font-weight: bold;
+		color: #0073EA;
+		text-decoration: none;
+		}		
+		
+		.game_thumb h4 strong {
+		font-weight: normal;
+		color: #0073EA;
+		}		 
+		
+		.game_thumb .meta {
+		text-align: center;
+		}		  
+		
+		.game_thumb .meta .poi {
+		color: #689DAE;
+		font-weight: normal;
+		}	   
+		
+		.game-pod {
+			background-color:#f1f1f1;
+			float:left;
+			padding:10px;
+			height:190px;
+			margin:5px;
+			border:1px solid #c0c0c0;;
+			border-radius:5px;
+			-moz-border-radius:5px; /* Firefox 3.6 and earlier */			
+		}
+		
+		.game-pod  input[type="checkbox"] { 
+			vertical-align:top; 
+			float:left;
+		}
+		
+		.game-pod  .game_thumb {
+			float:left;
+		}
+		
+		.game_thumb {
+			margin: 0 0 0 0;
+			padding: 0;
+			float: left;
+			position:relative;
+			width:160px;
+		}		
+		

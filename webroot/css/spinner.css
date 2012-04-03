@@ -101,7 +101,7 @@ width:298.6666666666667px;
 }
 
 .circleG{
-background-color:#F0E6FC;
+background-color:#008080;
 float:left;
 height:64px;
 margin-left:34px;
@@ -155,7 +155,7 @@ opacity:0.3}
 
 50%{
 opacity:1;
-background-color:#FFFF00}
+background-color:#2e8b57}
 
 100%{
 opacity:0.3}
@@ -168,7 +168,7 @@ opacity:0.3}
 
 50%{
 opacity:1;
-background-color:#FFFF00}
+background-color:#2e8b57}
 
 100%{
 opacity:0.3}
@@ -181,11 +181,11 @@ opacity:0.3}
 
 50%{
 opacity:1;
-background-color:#FFFF00}
+background-color:#2e8b57}
 
 100%{
 opacity:0.3}
-  
+
 }
 
 @-ms-keyframes bounce_circleG{
@@ -194,7 +194,7 @@ opacity:0.3}
 
 50%{
 opacity:1;
-background-color:#FFFF00}
+background-color:#2e8b57}
 
 100%{
 opacity:0.3}

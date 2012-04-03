@@ -26,13 +26,13 @@
 		?> 
 
 		<?php if ($currentPage >= $maxPages): ?>
-		<?php $startPage = $pageIndex; ?>
+		<?php $startPage = $pageIndex - 5; ?>
 			<a onclick="return changePage('<?php echo $category; ?>',1, '<?php echo $limit; ?>');" href="#">1</a>		
 			<span class="break">...</span>            
 		<?php endif; ?>
 
 
-		<?php
+		<?php   
 			// adjust endPage if the page count is more than maxPages
 			if ($totalPages > $maxPages) 
 				$endPage = $startPage + $maxPages; 
@@ -70,7 +70,6 @@
 		<!-- Items per page: -->  
 		<div class="items-per-page" >  
 			<select class="items-per-page-select" onchange="return changePage('<?php echo $category; ?>',1, this.value);">
-			  <option value="10"<?=($limit == '10') ? ' selected="selected"' : ''?>> 10 Items Per Page</option>
 			  <option value="20"<?=($limit == '20') ? ' selected="selected"' : ''?>> 20 Items Per Page</option>
 			  <option value="50"<?=($limit == '50') ? ' selected="selected"' : ''?>> 50 Items Per Page</option>
 			  <option value="100"<?=($limit == '100') ? ' selected="selected"' : ''?>>100 Items Per Page</option> 
@@ -97,4 +96,3 @@
 		
 	</div>  
 </div>
-<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>

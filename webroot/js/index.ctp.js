@@ -1,12 +1,9 @@
 
+		var $dialog;
 		$(document).ready(function() {	
 			initUI();
 			
-				//style: 'dropdown',
-				//menuWidth: 220,
-				//width:220
-						
-			$('#category-select').selectmenu({ style: 'dropdown', width: 220 });  
+			//$dialog = $("#submitdlg").dialog({ autoOpen: false });			
 		});
 
 		function initUI() {
@@ -21,17 +18,19 @@
 				width:150
 				}); 
 				    
-			$('div.addgame input:button').click(function(e) {
+			$('#addgame-button').click(function(e) {
 				//Cancel the link behavior
 				e.preventDefault();
-				addAllGames();
+				alert('add game click');
+				
+				//addAllGames();
 			});				
+			
+			$('#category-select').selectmenu({ style: 'dropdown', width: 220 });  
 		}
 		
 		 function changePage(category, page,limit) {
 		 
-			//limit = typeof limit !== 'undefined' ? limit : 20;		 
-			
 			var url = "/mochi_feed_entries/index/";
 			if( category ) {
 				url = url + "category:"+category+"/";
@@ -81,7 +80,7 @@
 			showDialog(
 				"#submitdlg", 
 				function(e) { 
-					$(e).fadeIn(1000); 
+					$(e).fadeIn(); 
 					$("#statusblock").html("");
 					$("#modal_header").html("");
 					$("#modal_header").append("<b>Submitting Requests - Please Wait</b>");				
@@ -92,42 +91,52 @@
 			doAjaxAddGame(values);
 		}
 		
-		function showDialogCallback(el) {
-			$(el).fadeIn(1000);
-		}
-		
-		function showGame(parent, gametag) {
+		function showGame(parent, name, gametag) {
 			
-			showDialog('#gamedlg', 
-				function(el) {
-					$("#statusblock").html("");
-					$("#modal_header").html("");
-					$("#modal_header").append("<b>Submitting Requests - Please Wait</b>");			
-					
-				}, 
-				function() { 
+			var $dialog = $("#gamedlg").dialog({
+				title: name,
+				beforeClose: function(event, ui) { },
+				close: function(event, ui) { 
 					$('#game_video').remove(); 
-					}, 
-				true);  
-			
-			
-			$.ajax({
-				url: "/mochi_feed_entries/view/"+gametag,
-				success: function(html){
-					$("#gamecontent").html($(html).find("#game_info")); 
-
-					hideLoading();
-					
-					$('#gamedlg').show();					
-					
-					// hookup buttons on content screen
-					$("input:button").button();
 				},
-				error: function(xhr, textStatus, thrownError){
-					alert("Uh oh, something bad happened: " + textStatus);
-					closeDialogWindow();
-				}
-			});				
+				open: function(event, ui) {
+				
+					// hide old contents
+					$('#gamedlg-contents').hide();
+
+					// show loading
+					$("#loading-div").show();
+					
+					$.ajax({
+						url: "/mochi_feed_entries/view/"+gametag,
+						success: function(html){
+							
+							$("#loading-div").hide();
+							$("#gamecontent").html($(html).find("#game_info")); 
+							$('#gamedlg-contents').fadeIn('fast');
+
+							// hookup buttons on content screen
+							$dialog.find("input:button").button();
+						},
+						error: function(xhr, textStatus, thrownError){  
+							alert("Uh oh, something bad happened: " + textStatus);
+							$dialog.dialog('close');
+						}
+					});				
+				},
+				modal: true,
+				height: 700,
+				width: 1100
+				});
+				
+			$dialog.dialog('open');			
+			
+			$dialog.find('.close').click(function (e) {
+				//Cancel the link behavior
+				e.preventDefault();
+				$dialog.dialog('close');
+			});
+			
 		}		
 		  
 		function addSingleGame(gametag) { 

@@ -66,7 +66,7 @@ class MochiFeedEntriesController extends AppController {
 		$this->paginate = array(
 			'fields' => array('MochiFeedEntry.*', 'MochiGame.id'),
 			'conditions' => $conditions,
-			'order' => array('MochiFeedEntry.metascore' => 'DESC', 'MochiFeedEntry.created' => 'DESC')
+			'order' => array('MochiFeedEntry.metascore' => 'DESC')
 		);
 		
 		$entries = $this->paginate('MochiFeedEntry');

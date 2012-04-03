@@ -44,6 +44,12 @@
 			linkDialogClosed(fnclose);
 		}
 		
+		function showLoading() {
+			$("#loading-div").show();
+			$("#loading-div").css('top',  winH/2-$(id).height()/2);
+			$("#loading-div").css('left', winW/2-$(id).width()/2);
+		}
+		
 		function hideLoading() {
 			$("#loading-div").hide();
 		}

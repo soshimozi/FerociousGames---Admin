@@ -10,32 +10,47 @@ if( $hours > 240 ) {
 	$timestring = "$days days ago";
 	
 } else {
-	$timestring = "$hours hours ago";
+	$timestring = "$hours hours ago"; 
 }
 
 ?>
+  
+  
+<?php echo $html->css('game-info');?> 
 
 <div id="game_info">
 	<div id="key_meta">
 		<div class="thumb">
 			<a target="_blank" href="<?php echo $rec['MochiFeedEntry']['game_url']; ?>"><img alt="<?php echo $rec['MochiFeedEntry']['name']; ?>" src="<?php echo $rec['MochiFeedEntry']['thumbnail_url']; ?>"></a>
         </div>
-		<a class="game-link" target="_blank" href="<?php echo $rec['MochiFeedEntry']['game_url']; ?>"><h2><?php echo $rec['MochiFeedEntry']['name']; ?></h2></a>
-		<h3>Added: <?php echo $timestring; ?></h3>
-		<h4>Content Rating:</h4> <?php echo $rec['MochiFeedEntry']['rating']; ?>
-		<h5>Size:</h5> <?php echo $rec['MochiFeedEntry']['resolution']; ?>
+		<div style="display:inline-block;">
+			<a class="game-link" target="_blank" href="<?php echo $rec['MochiFeedEntry']['game_url']; ?>"><?php echo $rec['MochiFeedEntry']['name']; ?></a>
+			<div class="float-divider"></div>
+			<div style="font-style:italic;font-size:.75em;">Added <?php echo $timestring; ?></div>
+			<div class="float-divider"></div>
+			<div style="display:inline-block;text-align:right;width:75px;font-size:.83em;color:#ff0084;font-weight:bold;">Content Rating:</div>
+			<div style="display:inline-block;font-weight:bold;"><?php echo $rec['MochiFeedEntry']['rating']; ?></div>
+			<div class="float-divider"></div>
+			<div style="display:inline-block;text-align:right;width:75px;font-size:.83em;color:#ff0084;font-weight:bold;">Size:</div>
+			<div style="display:inline-block;font-weight:bold;"><?php echo $rec['MochiFeedEntry']['resolution']; ?></div>
+			<div class="float-divider"></div>
+			<div style="display:inline-block;text-align:right;width:75px;font-size:.83em;color:#ff0084;font-weight:bold;">Created by: </div>
+			<div style="display:inline-block;"><a class="author-link" target="_blank" href="<?php echo $rec['MochiFeedEntry']['author_link']; ?>"><?php echo $rec['MochiFeedEntry']['author']; ?></a></div>
+		</div>
+		<div class="float-divider"></div>
 		<ul style="float:left; min-width:420px; width:420px; max-width:420px">
 			<li><strong>Primary Category:</strong> <?php echo $rec['MochiFeedEntry']['category']; ?></li>
 			<li><strong>Secondary Categories:</strong> <?php echo $rec['MochiFeedEntry']['categories']; ?></strong> </li>
 			<li><strong>Tags:</strong> <?php echo $rec['MochiFeedEntry']['tags']; ?></li>
-			<li><strong>Created by:</strong> <a target="_blank" href="<?php echo $rec['MochiFeedEntry']['author_link']; ?>"><?php echo $rec['MochiFeedEntry']['author']; ?></a></li>
 		</ul>
+		
 		<?php if( empty($rec['MochiGame']['id']) ): ?>
 		<div>
 		<div style="float:left;"><input type="button" value="Add Game" onclick="javascript:addSingleGame('<?php echo $rec['MochiFeedEntry']['game_tag']; ?>');" /></div>
 		<div style="float:left; padding-left:8px;" id="gamestatusblock"></div>
 		</div>
 		<?php endif; ?>
+		
 
 	</div>
 	<div id="secondary_meta">
