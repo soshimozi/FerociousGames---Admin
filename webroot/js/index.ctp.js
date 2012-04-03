@@ -1,9 +1,6 @@
 
-		var $dialog;
 		$(document).ready(function() {	
 			initUI();
-			
-			//$dialog = $("#submitdlg").dialog({ autoOpen: false });			
 		});
 
 		function initUI() {
@@ -21,9 +18,7 @@
 			$('#addgame-button').click(function(e) {
 				//Cancel the link behavior
 				e.preventDefault();
-				alert('add game click');
-				
-				//addAllGames();
+				addAllGames();
 			});				
 			
 			$('#category-select').selectmenu({ style: 'dropdown', width: 220 });  
@@ -77,19 +72,87 @@
 			  values.push($(this).val());
 			});				
 
-			showDialog(
-				"#submitdlg", 
-				function(e) { 
-					$(e).fadeIn(); 
-					$("#statusblock").html("");
-					$("#modal_header").html("");
-					$("#modal_header").append("<b>Submitting Requests - Please Wait</b>");				
-					}, 
-				function() { }, 
-				false);
+			$("#statusblock").html("");
+			$("#modal_header").html("");
+			$("#modal_header").append("Submitting Requests - Please Wait");			
+			
+			var done = false;
+			var $dialog = $("#submitdlg").dialog({
+				title: 'Submitting Selected Games',
+				beforeClose: function(event, ui) { 
+					//if( !done ) {
+					//	return false;
+					//}
+				},
+				open: function(event, ui) {
+					alert('wtf?');
+					
+					doAjaxAddGame(values, $dialog);
+					done = true;
+				},
+				modal: true,
+				height: 300,
+				width: 400				
+			});
+			
+			$dialog.dialog('open');
+			
+			
+			//showDialog(
+			//	"#submitdlg", 
+			//	function(e) { 
+			//		$(e).fadeIn(); 
+			//		$("#statusblock").html("");
+			//		$("#modal_header").html("");
+			//		$("#modal_header").append("<b>Submitting Requests - Please Wait</b>");				
+			//		}, 
+			//	function() { }, 
+			//	false);
 
-			doAjaxAddGame(values);
+			//doAjaxAddGame(values);
 		}
+		
+		function doAjaxAddGame(submitted_ids, dlg) {
+		
+			var currentTag = submitted_ids.shift();
+			
+			alert('inside call game');
+			
+			if( currentTag ) {
+				
+				$("#statusblock").append("Contacting server... ");
+				
+				doAjaxAddGame(submitted_ids, dlg)
+				
+				//$.ajax({
+				//	type: "POST",
+				//	url: "/mochi_feed_entries/addgame/" + currentTag,
+				//	crossDomain: true,
+				//	success: function(html){
+					
+				//		var id = "#" + currentTag;
+				//		$(id).find("input:checkbox").attr("disabled", true);
+				//		
+				//		$('input[value="'+currentTag+'"]').attr("checked", false);
+				//		$('input[value="'+currentTag+'"]').attr("disabled", true);
+				//		
+				//		$("#statusblock").append("success!<br />"); 
+				//		
+				//		// call recursively
+				//		doAjaxAddGame(submitted_ids);
+				//	},
+				//	error: function(xhr, textStatus, thrownError){
+				//		alert("Uh oh, something bad happened: " + textStatus);
+				//		closeDialogWindow();
+				//	}
+				//});				
+			} else {
+				$("#modal_header").append(" | <a href='#' class='close'>Close</a><br />");
+				$('#modal_header a').button();
+				//linkDialogClosed(function() { });
+			}
+		}
+		
 		
 		function showGame(parent, name, gametag) {
 			
@@ -161,40 +224,4 @@
 		};
 		
 
-		function doAjaxAddGame(submitted_ids) {
-		
-			var currentTag = submitted_ids.shift();
-			
-			if( currentTag ) {
-				
-				$("#statusblock").append("Contacting server... ");
-				
-				$.ajax({
-					type: "POST",
-					url: "/mochi_feed_entries/addgame/" + currentTag,
-					crossDomain: true,
-					success: function(html){
-					
-						var id = "#" + currentTag;
-						$(id).find("input:checkbox").attr("disabled", true);
-						
-						$('input[value="'+currentTag+'"]').attr("checked", false);
-						$('input[value="'+currentTag+'"]').attr("disabled", true);
-						
-						$("#statusblock").append("success!<br />"); 
-						
-						// call recursively
-						doAjaxAddGame(submitted_ids);
-					},
-					error: function(xhr, textStatus, thrownError){
-						alert("Uh oh, something bad happened: " + textStatus);
-						closeDialogWindow();
-					}
-				});				
-			} else {
-				$("#modal_header").append(" | <a href='#' class='close'>Close</a><br />");
-				$('#modal_header a').button();
-				linkDialogClosed(function() { });
-			}
-		}
 		

@@ -1,17 +1,17 @@
 
 <div class="game-pod" id=<?php echo $game['game_tag']; ?>>
 	<div style="float:right;">
-		<?php if( !empty($mochi_game_id) ): ?> 
+		<?php if( empty($mochi_game_id) ): ?> 
 			<input style="vertical-align:middle;" type="checkbox" name="gametag[]" value="<?php echo $game['game_tag']; ?>" />
-		<?php endif; ?>			
+		<?php endif; ?>			 
 	</div>
 	<div class="float-divider"></div>
 	<div class="game_thumb" > 
 		<a id="<?php echo $game['game_tag']; ?>" href="javascript:showGame('#<?php echo $game['game_tag']; ?>', '<?php echo $game['name']; ?>', '<?php echo $game['game_tag']; ?>');">
 		<img src="<?php echo $game['thumbnail_url']; ?>" alt="<?php echo $game['name']; ?>">
-		</a>
+		</a>  
 		<?php if($game['leaderboard_enabled'] || $game['coins_enabled'] || $game['coins_revshare_enabled']): ?>
-		<div class="features">
+		<div class="features"> 
 		  <div>  
 			<?php if($game['leaderboard_enabled']): ?>
 			<span class="lb_enabled" title="Leaderboard Enabled"></span>  

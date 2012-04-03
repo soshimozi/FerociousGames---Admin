@@ -18,14 +18,14 @@
     
 	 		 
 	<!-- #customize your modal window here --> 
-	<!--<div id="submitdlg" class="window">
+	<div id="submitdlg" style="display:none;">
 		<div id="modal_header"></div>
 		
 		<div id="statusblock">
+		safsafsdf
 		</div>
 
 	</div>
-	-->
 		   
 	<div id="gamedlg" style="display:none;"> 
 		<div id="loading-div" style="display:none;">
