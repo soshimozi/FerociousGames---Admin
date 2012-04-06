@@ -19,11 +19,9 @@
 	 		 
 	<!-- #customize your modal window here --> 
 	<div id="submitdlg" style="display:none;">
-		<div id="modal_header"></div>
+		<div id="modal-header"></div>
 		
-		<div id="statusblock">
-		safsafsdf
-		</div>
+		<div id="statusblock"></div>
 
 	</div>
 		   

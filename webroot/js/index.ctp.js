@@ -52,6 +52,10 @@
 				},
 				error: function(xhr, textStatus, thrownError){
 					hideSpinner();				
+					
+					if( xhr.status == 403 ) {
+						window.location.href = "/users/login";
+					}
 				}
 			});	
 			
@@ -73,83 +77,60 @@
 			});				
 
 			$("#statusblock").html("");
-			$("#modal_header").html("");
-			$("#modal_header").append("Submitting Requests - Please Wait");			
+			$("#modal-header").html("");
+			$("#modal-header").append("Submitting Requests - Please Wait");			
 			
-			var done = false;
-			var $dialog = $("#submitdlg").dialog({
+			$("#submitdlg").dialog({
 				title: 'Submitting Selected Games',
-				beforeClose: function(event, ui) { 
-					//if( !done ) {
-					//	return false;
-					//}
-				},
 				open: function(event, ui) {
-					alert('wtf?');
 					
-					doAjaxAddGame(values, $dialog);
-					done = true;
+					doAjaxAddGame(values);
 				},
 				modal: true,
 				height: 300,
 				width: 400				
 			});
 			
-			$dialog.dialog('open');
-			
-			
-			//showDialog(
-			//	"#submitdlg", 
-			//	function(e) { 
-			//		$(e).fadeIn(); 
-			//		$("#statusblock").html("");
-			//		$("#modal_header").html("");
-			//		$("#modal_header").append("<b>Submitting Requests - Please Wait</b>");				
-			//		}, 
-			//	function() { }, 
-			//	false);
+			$("#submitdlg").dialog('open');
 
-			//doAjaxAddGame(values);
 		}
 		
-		function doAjaxAddGame(submitted_ids, dlg) {
+		function doAjaxAddGame(submitted_ids) {
 		
 			var currentTag = submitted_ids.shift();
 			
-			alert('inside call game');
-			
 			if( currentTag ) {
 				
-				$("#statusblock").append("Contacting server... ");
+				var $div = $("<div></div>");
+				$div.html("Contacting server ...");
+				$("#statusblock").append($div);
 				
-				doAjaxAddGame(submitted_ids, dlg)
-				
-				//$.ajax({
-				//	type: "POST",
-				//	url: "/mochi_feed_entries/addgame/" + currentTag,
-				//	crossDomain: true,
-				//	success: function(html){
+				$.ajax({
+					type: "POST",
+					url: "/mochi_feed_entries/addgame/" + currentTag,
+					crossDomain: true,
+					success: function(html){
 					
-				//		var id = "#" + currentTag;
-				//		$(id).find("input:checkbox").attr("disabled", true);
-				//		
-				//		$('input[value="'+currentTag+'"]').attr("checked", false);
-				//		$('input[value="'+currentTag+'"]').attr("disabled", true);
-				//		
-				//		$("#statusblock").append("success!<br />"); 
-				//		
-				//		// call recursively
-				//		doAjaxAddGame(submitted_ids);
-				//	},
-				//	error: function(xhr, textStatus, thrownError){
-				//		alert("Uh oh, something bad happened: " + textStatus);
-				//		closeDialogWindow();
-				//	}
-				//});				
-			} else {
-				$("#modal_header").append(" | <a href='#' class='close'>Close</a><br />");
-				$('#modal_header a').button();
-				//linkDialogClosed(function() { });
+						var id = "#" + currentTag;
+						
+						$('input[value="'+currentTag+'"]').attr("checked", false);
+						$('input[value="'+currentTag+'"]').hide();
+						
+						$div.html($div.html() + "success!<br />"); 
+						
+						// call recursively
+						doAjaxAddGame(submitted_ids);
+					},
+					error: function(xhr, textStatus, thrownError){
+						alert("Uh oh, something bad happened: " + textStatus);
+						$("#submitdlg").dialog('close');
+					}
+				});				
+			} else {  
+				$("#modal-header").html($("#modal-header").html() + "<span> | <a href='#' class='close'>Close</a></span>");
+				$('#modal-header a').button().click(function(e) {
+						$("#submitdlg").dialog('close');
+					});
 			}
 		}
 		
@@ -181,9 +162,16 @@
 							// hookup buttons on content screen
 							$dialog.find("input:button").button();
 						},
-						error: function(xhr, textStatus, thrownError){  
-							alert("Uh oh, something bad happened: " + textStatus);
-							$dialog.dialog('close');
+						error: function(xhr, textStatus, thrownError){
+							if( xhr.status == 403  ) {
+								$dialog.dialog('close');
+								window.location.href = "/users/login";
+							} else {
+
+								printObject(xhr);
+								alert("Uh oh, something bad happened: " + textStatus);
+								$dialog.dialog('close');
+							}
 						}
 					});				
 				},
@@ -218,10 +206,16 @@
 				},
 				error: function(xhr, textStatus, thrownError){
 					alert("Uh oh, something bad happened: " + textStatus);
-					closeDialogWindow();
 				}		
 			});
 		};
 		
+		function printObject(o) {
+			  var out = '';
+			  for (var p in o) {
+			    out += p + ': ' + o[p] + '\n';
+			  }
+			  alert(out);
+			}		
 
 		
