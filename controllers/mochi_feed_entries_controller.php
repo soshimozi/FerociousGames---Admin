@@ -88,9 +88,10 @@ class MochiFeedEntriesController extends AppController {
 	}	
 	
 	function addgame($gametag) {
-		$auto_post_url = $this->MochiConfig->find('first', array('conditions' => array('MochiConfig.name' => 'auto-post-url')));
-		if( $auto_post_url ) {
-			$this->do_post_request("http://data.ferociousgames.com/mochi/autopost.php", "game_tag=$gametag");
+		$config_entry = $this->MochiConfig->find('first', array('conditions' => array('MochiConfig.name' => 'auto-post-url')));
+		
+		if( !empty($config_entry) ) {
+			$this->do_post_request($config_entry['MochiConfig']['value'], "game_tag=$gametag");
 		}
 	}
 	

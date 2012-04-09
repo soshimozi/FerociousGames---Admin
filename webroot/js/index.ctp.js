@@ -202,7 +202,7 @@
 					$("#gamestatusblock").append("<span style=\"color:#228b22;font-weight:bold;\">success!</span><br />"); 
 					
 					var id = "#" + gametag;
-					$(id).find("input:checkbox").attr("disabled", true);
+					$(id).find("input:checkbox").hide();
 				},
 				error: function(xhr, textStatus, thrownError){
 					alert("Uh oh, something bad happened: " + textStatus);
